@@ -14,13 +14,14 @@ void BitWriter::write(int64_t word, unsigned length)
 {
     assert(length < 64);
     assert(my_bpos >= 0 && my_bpos < 8);
-    int l(length);
-    while (l >= 0) {
-        if ((1 << l) & word)
+    //int l(length);
+    int l = 1 << length;
+    while (l) {
+        if (l & word)
             pushBit(1);
         else
             pushBit(0);
-        l--;
+        l>>=1;
     }
 }
 

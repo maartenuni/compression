@@ -59,7 +59,7 @@ int main(int argc, char** argv) {
         if (it == codebook.end())
             return EXIT_FAILURE;
         ptr = *it;
-        writer.write(ptr->bits(), ptr->length());
+        writer.write(ptr->bits(), ptr->length() - 1);
     }
 
     out << writer;
